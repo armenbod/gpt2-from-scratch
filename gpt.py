@@ -4,13 +4,13 @@ GPT model implementation
 
 B - batch size: many many independent sequences to process in parallel
 T - time-step: sequence length
-C - channel: embedding dimension
+C - channel: embedding dimension (same as vocab size)
 
 In each iteration:
 - Generate batch of data (x, y), where x is the input sequence, and y is the next character in the sequence, size (B, T)
 - Forward pass:
-    - Get logits: (B, T, C)
-    - Get loss: (B, T)
+    - Get logits: (B * T, C)
+    - Get loss
 - Backward pass:
     - Compute gradients
     - Update weights
